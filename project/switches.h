@@ -23,7 +23,8 @@
 #define SWITCHES (SW1| SW2| SW3| SW4)
 
 
-
+typedef unsigned char u_char;
+typedef unsigned int u_int;
 
 
 

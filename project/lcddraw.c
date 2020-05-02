@@ -11,9 +11,24 @@
  *  \param row Row to draw to
  *  \param colorBGR Color of pixel in BGR
  */
+void coolShape1(){
+    for(int x=0; x<=50; x++){
+        int colLeft=50-x;
+        int colRight = x;
+        for(int c =colRight; c<=colLeft; c++){
+            drawPixel(50+c,50+x,COLOR_RED);
+            drawPixel(50+c,50-x,COLOR_PURPLE);
+            drawPixel(50-c,50+x,COLOR_GREEN);
+            drawPixel(50-c,50-x,COLOR_YELLOW);
+        }
+            
+            
+        }
+    
+}
 void drawTriangle(){
 
-  for(int i=0; i<=10;i++){
+  for(int i=20; i<=50;i++){
 
     drawPixel(50,i+10, COLOR_BLACK);
 
@@ -27,11 +42,11 @@ void drawTriangle(){
 
   for(int j=0; j<=10;j++){
 
-    drawPixel(30,j+10,COLOR_BLACK);
+    drawPixel(130,j+10,COLOR_BLACK);
 
-    drawPixel(20+j,20, COLOR_BLACK);
+    drawPixel(120+j,20, COLOR_BLACK);
 
-    drawPixel(20+j/2,20-j/2, COLOR_BLACK);
+    drawPixel(120+j/2,20-j/2, COLOR_BLACK);
 
   }
 
@@ -40,13 +55,13 @@ void drawAsterick(){
 
   for (int x=20; x<50;x++){  // draws 'x'
 
-    drawPixel(x/2,x/2,COLOR_BLUE);
+    drawPixel(x/2,x/2,COLOR_YELLOW);
 
-    drawPixel(x/2,35-x/2,COLOR_BLUE);
+    drawPixel(x/2,35-x/2,COLOR_YELLOW);
 
-    drawPixel(17.5,x/2, COLOR_BLUE);
+    drawPixel(17.5,x/2, COLOR_YELLOW);
 
-    drawPixel(x/2,17.5,COLOR_BLUE);
+    drawPixel(x/2,17.5,COLOR_YELLOW);
 
   }
 

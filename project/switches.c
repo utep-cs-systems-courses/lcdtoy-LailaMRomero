@@ -7,7 +7,6 @@
 #include "lcddraw.h"
 #include "lcdutils.h"
 
-
 char switch_state_down, switch_state_changed, tempo,s1,s2,s3,s4;
 
 static char switch_update_interrupt_sense(){
@@ -38,84 +37,65 @@ void switch_interrupt_handler(){
 
   char p2val = switch_update_interrupt_sense();
 
-  s1 = (p2val & SW1) ? 0 : 1; //switch 1
+  s1 = (p2val & SW1) ? 1 : 0; //switch 1
 
-  s2 = (p2val & SW2) ? 0 : 1; //switch 2
+  s2 = (p2val & SW2) ? 1 : 0; //switch 2
 
-  s3 = (p2val & SW3) ? 0 : 1; //switch 3
+  s3 = (p2val & SW3) ? 1 : 0; //switch 3
 
-  s4 = (p2val & SW4) ? 0 : 1; //switch 4
+  s4 = (p2val & SW4) ? 1 : 0; //switch 4
 
   buzzer_set_period(0);
 
 
 
-  if( s1){ // when switch 1 is pressed the green and red leds will turn on and will play a song
+  if(!(p2val & s1)){ // when switch 1 is pressed the green and red leds will turn on and will play a song
 
-    switch_state_down =s1;
-    switch_state_changed=1;
     state_advance();
-    tempo=5;
+    tempo=15;
     song2();
-    clearScreen(COLOR_RED);
-    drawTriangle();
-
-
-  } else if (s3){ // when switch 3 is pressed the green and red leds will turn on and will play a song
-
-    switch_state_down=s3;
-
-    switch_state_changed=2;
-
-    tempo=14;
-
-    song3();
-
-    led_update();
-
-
-
-  } else if (s4){  // when switch 4 is pressed the green and red leds will turn  on and will play a song
-
-    buzzer_set_period(0);
-
-    tempo=3;
-
-    switch_state_down=s4;
-
+    clearScreen(COLOR_BLACK);
+    drawString5x7(20,50, "Laila's project", COLOR_YELLOW, COLOR_BLACK);
+    drawString5x7(20,60, "is the best!", COLOR_YELLOW, COLOR_BLACK);
+    drawAsterick();
     switch_state_changed=1;
 
-    song1();
+  } else if (!(p2val & s2)){ // when switch 3 is pressed the green and red leds will turn on and will play a song
 
+    tempo=1;
+    song3();
     led_update();
+    clearScreen(COLOR_BLUE);
+    coolShape1();
+    switch_state_changed=2;
+    
 
 
-
-  } else if(s2){  // when switch 2 is pressed the leds will turn off and will play a son
-    tempo=12;
-
+  } else if (!(p2val & s3)){  // when switch 4 is pressed the green and red leds will turn  on and will play a song
+    clearScreen(COLOR_BLUE);
+    buzzer_set_period(0);
+    tempo=1;
+    song1();
+    led_update();
+    drawString5x7(20,20, "", COLOR_WHITE, COLOR_RED);
     switch_state_changed=3;
 
+
+  } else if(!(p2val & s4)){  // when switch 2 is pressed the leds will turn off and will play a son
+    tempo=12;
     song4();
-
     led_update();
-
-
-
-
+    clearScreen(COLOR_BLUE);
+    drawTriangle();
+    switch_state_changed=4;
 
   } else {
-
     switch_state_down = 0;
-
     switch_state_changed = 1;
-
     buzzer_set_period(0);
-
   }
 
   switch_state_changed=1;
-
   led_update();
 
 }
