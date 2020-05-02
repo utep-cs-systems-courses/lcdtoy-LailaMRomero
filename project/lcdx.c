@@ -8,7 +8,7 @@
 #include "buzzer.h"
 #include "led.h"
 #include "switches.h"
-#include <p2switches.h>
+
 /** Initializes everything, clears the screen, draws "hello" and a square */
 int
 main()
@@ -18,22 +18,24 @@ main()
   buzzer_init();
   led_init();
   enableWDTInterrupts();
+
   lcd_init();
-  u_char width = screenWidth, height = screenHeight;
+   u_char width = screenWidth, height = screenHeight;
   
-  clearScreen(COLOR_RED);
+  clearScreen(COLOR_WHITE);
+  or_sr(0x18);
   ///    drawHouse();
 
-    for (int c=0;c<=10;c++){
+  /*for (int c=0;c<=10;c++){
      int  rowStart=0;
      int  rowEnd=c;
       for(int r=rowStart;r<=rowEnd; r++){
 	drawPixel(6*c-c,6*r+r,COLOR_BLUE);
 	drawPixel(6*c-c,6*r+r,COLOR_BLUE);
       }
-    }
+      }*/
    
-    or_sr(0x18);
+   or_sr(0x18);
 }
 /*void drawTriangle(){
   for(int i=0; i<=10;i++){

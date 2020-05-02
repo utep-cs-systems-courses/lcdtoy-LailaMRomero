@@ -1,15 +1,11 @@
 #include <msp430.h>
-
 #include "libTimer.h"
-
 #include "led.h"
-
 #include "switches.h"
-
 #include "buzzer.h"
-
 #include "stateMachine.h"
-
+#include "lcddraw.h"
+#include "lcdutils.h"
 
 
 char switch_state_down, switch_state_changed, tempo,s1,s2,s3,s4;
@@ -21,9 +17,7 @@ static char switch_update_interrupt_sense(){
   //update switch interrupt to detect changes from current button
 
   P2IES |= (p2val & SWITCHES); //if switch up, sense down
-
   P2IES &= (p2val | ~SWITCHES); //if switch down, sense up
-
   return p2val;
 
 
@@ -59,15 +53,12 @@ void switch_interrupt_handler(){
   if( s1){ // when switch 1 is pressed the green and red leds will turn on and will play a song
 
     switch_state_down =s1;
-
     switch_state_changed=1;
-
     state_advance();
-
     tempo=5;
-
     song2();
-
+    clearScreen(COLOR_RED);
+    drawTriangle();
 
 
   } else if (s3){ // when switch 3 is pressed the green and red leds will turn on and will play a song

@@ -1,40 +1,84 @@
-all: libLcd.a lcddemo.elf
+COMMON_OBJECTS  =
 
 CPU             = msp430g2553
-CFLAGS          = -mmcu=${CPU} -Os -I../h 
-LDFLAGS 	= -L/opt/ti/msp430_gcc/include -L../lib 
+
+CFLAGS          = -mmcu=${CPU} -I../h -L/opt/ti/msp430_gcc/include
+
+LDFLAGS 	= -L/opt/ti/msp430_gcc/include -L../lib
+
+
+
 #switch the compiler (for the internal make rules)
+
 CC              = msp430-elf-gcc
-AS              = msp430-elf-as
-AR              = msp430-elf-ar
+
+AS              = msp430-elf-as	-mcpu=msp430 --traditional-format -mP
+
+
+
+all: project2.elf libLcd.a
 
 libLcd.a: font-11x16.o font-5x7.o font-8x12.o lcdutils.o lcddraw.o
+
 	$(AR) crs $@ $^
 
+
+
 lcddraw.o: lcddraw.c lcddraw.h lcdutils.h
+
 lcdutils.o: lcdutils.c lcdutils.h
-buzzer.o: buzzer.c buzzer.h
-interrupts.o: interrupts.c led.h switches.h led.h stateMachine.h buzzer.h
-led.o: led.c led.h
-switches.o: switches.c switches.h buzzer.h led.h
-stateMachine.o: stateMachine.c stateMachine.h led.h switches.h 
+
+
 
 install: libLcd.a
+
 	mkdir -p ../h ../lib
+
 	mv $^ ../lib
+
 	cp *.h ../h
 
+
+
+#additional rules for files
+
+project2.elf: ${COMMON_OBJECTS} stateMachine.o buzzer.o interrupts.o led.o switches.o main.o libLcd.a ../lib/libTimer.a
+
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
+
+
+
+
+
+load: project2.elf
+
+	msp430loader.sh project2.elf
+
+
+
 clean:
+
 	rm -f libLcd.a *.o *.elf
 
-lcddemo.elf: lcddemo.o libLcd.a 
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lTimer 
 
-lcdx.elf: lcdx.o libLcd.a
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lTimer
 
-load: lcddemo.elf
-	msp430loader.sh $^
+buzzer.o: buzzer.c buzzer.h
 
-loadx: lcdx.elf
-	msp430loader.sh $^
+
+
+led.o: led.c led.h switches.h
+
+
+
+switches.o: switches.c led.h switches.h buzzer.h lcddraw.h lcdutils.h
+
+
+
+stateMachine.o: stateMachine.s stateMachine.h led.h switches.h
+
+
+
+main.o: main.c buzzer.h led.h switches.h
+
+
+interrupts.o: interrupts.c 

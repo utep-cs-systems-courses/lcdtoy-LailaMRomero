@@ -253,57 +253,19 @@ void song4(){
 
 
 }
-void song4(){
+void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k results in 2kHz tone) */
 
 
 
-  switch (counter) {
-
-  case 0:
-
-    buzzer_set_period(1050);
-
-    counter=counter+3;
-
-  case 1:
-
-  case 2:
-
-  case 3:
-
-    buzzer_set_period(750);
-
-    counter++;
-
-    break;
-
-  case 4:
-
-    buzzer_set_period(950);
-
-    counter++;
-
-    break;
-
-  case 5:
-
-    buzzer_set_period(630);
-
-    counter++;
-
-    break;
-
-  case 6:
-
-    buzzer_set_period(1260);
-
-    counter = 0;
-
-    break;
+{
 
 
 
-  }
+  CCR0 = cycles;
+
+
+
+  CCR1 = cycles >> 1;/* one half cycle */
 
 
 

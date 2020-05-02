@@ -36,7 +36,21 @@ void drawTriangle(){
   }
 
 }
+void drawAsterick(){
 
+  for (int x=20; x<50;x++){  // draws 'x'
+
+    drawPixel(x/2,x/2,COLOR_BLUE);
+
+    drawPixel(x/2,35-x/2,COLOR_BLUE);
+
+    drawPixel(17.5,x/2, COLOR_BLUE);
+
+    drawPixel(x/2,17.5,COLOR_BLUE);
+
+  }
+
+}
 void drawPixel(u_char col, u_char row, u_int colorBGR) 
 {
   lcd_setArea(col, row, col, row);

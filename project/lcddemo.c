@@ -5,13 +5,14 @@
 #include <libTimer.h>
 #include "lcdutils.h"
 #include "lcddraw.h"
-
+#include "switches.h"
 /** Initializes everything, clears the screen, draws "hello" and a square */
 int
 main()
 {
   configureClocks();
   lcd_init();
+  switch_init();
   u_char width = screenWidth, height = screenHeight;
 
   clearScreen(COLOR_BLUE);

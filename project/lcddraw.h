@@ -13,7 +13,7 @@
  */
 void drawPixel(u_char col, u_char row, u_int colorBGR);
 void drawTriangle();
-
+void drawAsterick();
 /** Fill rectangle
  *
  *  \param colMin Column start
