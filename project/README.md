@@ -1,57 +1,31 @@
-# lcdLib from Project 3: LCD Game
+# Project 3
 ## Introduction
 
-lcdLib provides primitives for a pixel, rectangle, clearing the screen and a 5x7 font. Handles all the lower-level "messy stuff". 
+The main purpose of this project was to learn how to use the lcd screen and
+incorporate the switches, lights and buzzer. My project incorporates all
+thress aspects.
 
+## How to use
 
-Two types are defined (used as shortcut to typing "unsigned [type]"):
+ - From the main repository, navigate into the project folder
+ - Once inside the project folder, type "make" to compile
+ - After it has compiled, type "make load"
+ - After running "make load" it should appear on the msp430 and will be ready
+ - to use 
+ 
+## What it should do
 
- - u_char : unsigned char
+ - The msp430 should have a default welcome screen showing a menu of
+   options. Each option corresponds to switch numbers. While pressed, the
+   switches should produce the following: 
 
- - u_int : unsigned int
+ - S1 will display a secret message, play a song, and turn on the leds
 
-## Files
+ - S2 will display an image, play a song and turn on the leds
+ 
+ - S3 will display an image, play a song and turn on the leds
+ 
+ - S4 will display an image, play a song and turn on the leds
 
- - lcdutils.h, lcdutils.c: these provide the lowest level interface to
-   the lcd such as
-
-    - lcd_init: initialization of the lcd
-    - defining screenWidth and screeenHeight
-    - colors (at end of lcdutils.h (represented as 16 bit BGR values: 5 bits of blue, 6 bits
-      of green, and 5 bits of red)
-    - lcd_setArea, lcd_writeColor: methods for selecting rectangular
-      regions and setting the colors of the pixels they contain.
-    
-
- - lcddraw.h: simple drawing facilities that utilize lcdutils
-
- - lcddraw.c: 
-     - drawPixel(): sets the color of a pixel
-     - fillRect(): fill a rectangle with a color
-     - drawChar5x7, drawString5x7: draws characters/strings at
-     particular locations
-
- - font5x7.c, font11x16.c font8x12.c: tables of bitmapped fonts
-
-## Demo code
-
-lcddemo.c is a program that displays a string and a rectangle.  A
-"load" make production loads it into the launchpad board.
-
-## Suggested exercises
-
-In order to explore shape rendering, students are encouraged to create additinal "demo" programs that: 
-
- - draw a diagonal line (for example, where row = col or row = screenWidth-col)
-
- - draw a filled or outline of a right triangle
-
- - draw the other fonts hidden in the source files
-
-## Installing the LCD lib (for other programs)
-
-$ make install
-
-## See Also
-
-lcdLib requires timerLib (in directory ../timerLib).  Be sure to "make install" it first!
+If none of the switches are being held down the lcd screen will return to the
+default welcome screen.
