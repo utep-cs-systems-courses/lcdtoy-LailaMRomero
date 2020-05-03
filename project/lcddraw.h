@@ -15,6 +15,8 @@ void drawPixel(u_char col, u_char row, u_int colorBGR);
 void drawTriangle();
 void drawAsterick();
 void coolShape1();
+void coolerShape();
+void coolestShape();
 /** Fill rectangle
  *
  *  \param colMin Column start

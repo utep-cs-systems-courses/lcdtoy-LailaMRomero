@@ -11,6 +11,7 @@
  *  \param row Row to draw to
  *  \param colorBGR Color of pixel in BGR
  */
+
 void coolShape1(){
     for(int x=0; x<=50; x++){
         int colLeft=50-x;
@@ -24,6 +25,17 @@ void coolShape1(){
             
             
         }
+    
+}
+void coolestShape(){
+ for (int c=0;c<=10;c++){
+     int  rowStart=0;
+     int  rowEnd=c;
+      for(int r=rowStart;r<=rowEnd; r++){
+	drawPixel(6*c-c,6*r+r,COLOR_BLACK);
+	drawPixel(6*c-c,6*r+r,COLOR_RED);
+      }
+      }   
     
 }
 void drawTriangle(){

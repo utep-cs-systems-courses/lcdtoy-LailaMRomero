@@ -85,8 +85,8 @@ void switch_interrupt_handler(){
     tempo=12;
     song4();
     led_update();
-    clearScreen(COLOR_BLUE);
-    drawTriangle();
+    clearScreen(COLOR_YELLOW);
+    coolestShape();
     switch_state_changed=4;
 
   } else {
@@ -99,3 +99,4 @@ void switch_interrupt_handler(){
   led_update();
 
 }
+
