@@ -77,7 +77,8 @@ void switch_interrupt_handler(){
     tempo=1;
     song1();
     led_update();
-    drawString5x7(20,20, "", COLOR_WHITE, COLOR_RED);
+    coolerShape();
+ //   drawString5x7(20,20, "", COLOR_WHITE, COLOR_RED);
     switch_state_changed=3;
 
 
@@ -85,8 +86,9 @@ void switch_interrupt_handler(){
     tempo=12;
     song4();
     led_update();
-    clearScreen(COLOR_YELLOW);
+    clearScreen(COLOR_BLACK);
     coolestShape();
+    coolShape2();
     switch_state_changed=4;
 
   } else {

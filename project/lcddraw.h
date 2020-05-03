@@ -15,6 +15,7 @@ void drawPixel(u_char col, u_char row, u_int colorBGR);
 void drawTriangle();
 void drawAsterick();
 void coolShape1();
+void coolShape2();
 void coolerShape();
 void coolestShape();
 /** Fill rectangle

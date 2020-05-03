@@ -23,21 +23,134 @@ void coolShape1(){
             drawPixel(50-c,50-x,COLOR_YELLOW);
         }
             
+        }
+    for(int x=0; x<=50; x++){
+        int colLeft=50-x;
+        int colRight = x;
+        for(int c =colRight; c<=colLeft; c++){
+            drawPixel(80+c,100+x,COLOR_BLACK);
+            drawPixel(80+c,100-x,COLOR_GREEN);
+            drawPixel(80-c,100+x,COLOR_RED);
+            drawPixel(80-c,100-x,COLOR_ORANGE);
+        }
+            
+        }
+}
+void coolShape2(){
+    for(int x=0; x<=50; x++){
+        int colLeft=50-x;
+        int colRight = x;
+        for(int c =colRight; c<=colLeft; c++){
+            drawPixel(65+c,80+x,COLOR_RED);
+            drawPixel(65+c,80-x,COLOR_BLUE);
+            drawPixel(65-c,80+x,COLOR_PURPLE);
+            drawPixel(65-c,80-x,COLOR_YELLOW);
+        }
             
         }
     
 }
+void coolerShape(){
+   for(int x=0; x<=50; x++){
+        int colLeft=50-x;
+        int colRight = x;
+        for(int c =colRight; c<=colLeft; c++){
+            drawPixel(37+c,95+x,COLOR_RED);
+            drawPixel(37+c,50-x,COLOR_PURPLE);
+            //drawPixel(50-c,50+x,COLOR_GREEN);
+            //drawPixel(50-c,50-x,COLOR_YELLOW);
+        }
+            
+        }
+            fillRectangle(40,50, 45, 45, COLOR_ORANGE);
+
+
+}
 void coolestShape(){
- for (int c=0;c<=10;c++){
-     int  rowStart=0;
-     int  rowEnd=c;
-      for(int r=rowStart;r<=rowEnd; r++){
-	drawPixel(6*c-c,6*r+r,COLOR_BLACK);
-	drawPixel(6*c-c,6*r+r,COLOR_RED);
-      }
-      }   
+      int colLeft, colRight;
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(20+c, 30+r, COLOR_RED);
+            drawPixel(20-c, 30+r, COLOR_RED);
+            drawPixel(20+c, 30-r, COLOR_RED);
+            drawPixel(20-c, 30-r, COLOR_RED);
+        }
+    }
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(50+c, 30+r, COLOR_RED);
+            drawPixel(50-c, 30+r, COLOR_RED);
+            drawPixel(50+c, 30-r, COLOR_RED);
+            drawPixel(50-c, 30-r, COLOR_RED);
+        }
+    }
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(80+c, 30+r, COLOR_RED);
+            drawPixel(80-c, 30+r, COLOR_RED);
+            drawPixel(80+c, 30-r, COLOR_RED);
+            drawPixel(80-c, 30-r, COLOR_RED);
+        }
+    }
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(110+c, 30+r, COLOR_RED);
+            drawPixel(110-c, 30+r, COLOR_RED);
+            drawPixel(110+c, 30-r, COLOR_RED);
+            drawPixel(110-c, 30-r, COLOR_RED);
+        }
+        for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(20+c, 130+r, COLOR_RED);
+            drawPixel(20-c, 130+r, COLOR_RED);
+            drawPixel(20+c, 130-r, COLOR_RED);
+            drawPixel(20-c, 130-r, COLOR_RED);
+        }
+    }
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(50+c, 130+r, COLOR_RED);
+            drawPixel(50-c, 130+r, COLOR_RED);
+            drawPixel(50+c, 130-r, COLOR_RED);
+            drawPixel(50-c, 130-r, COLOR_RED);
+        }
+    }
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(80+c, 130+r, COLOR_RED);
+            drawPixel(80-c, 130+r, COLOR_RED);
+            drawPixel(80+c, 130-r, COLOR_RED);
+            drawPixel(80-c, 130-r, COLOR_RED);
+        }
+    }
+    for ( int r=0; r<=15; r+=3){
+        colLeft = 15-r;
+        colRight = 15;
+        for (int c = colLeft; c <= colRight; c+=3){
+            drawPixel(110+c, 130+r, COLOR_RED);
+            drawPixel(110-c, 130+r, COLOR_RED);
+            drawPixel(110+c, 130-r, COLOR_RED);
+            drawPixel(110-c, 130-r, COLOR_RED);
+        }
+    }
     
 }
+}
+
 void drawTriangle(){
 
   for(int i=20; i<=50;i++){
@@ -54,11 +167,11 @@ void drawTriangle(){
 
   for(int j=0; j<=10;j++){
 
-    drawPixel(130,j+10,COLOR_BLACK);
+    drawPixel(30,j+10,COLOR_BLACK);
 
-    drawPixel(120+j,20, COLOR_BLACK);
+    drawPixel(20+j,20, COLOR_BLACK);
 
-    drawPixel(120+j/2,20-j/2, COLOR_BLACK);
+    drawPixel(20+j/2,20-j/2, COLOR_BLACK);
 
   }
 
@@ -66,6 +179,17 @@ void drawTriangle(){
 void drawAsterick(){
 
   for (int x=20; x<50;x++){  // draws 'x'
+
+    drawPixel(x/2,x/2,COLOR_YELLOW);
+
+    drawPixel(x/2,35-x/2,COLOR_YELLOW);
+
+    drawPixel(17.5,x/2, COLOR_YELLOW);
+
+    drawPixel(x/2,17.5,COLOR_YELLOW);
+
+  }
+  for (int x=70; x<50;x++){  // draws 'x'
 
     drawPixel(x/2,x/2,COLOR_YELLOW);
 
